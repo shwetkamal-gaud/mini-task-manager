@@ -4,7 +4,7 @@ import taskRoute from './routes/task.route'
 
 const app = express();
 
-app.use(cors({ origin: ['http://localhost:3000','https://mini-task-manager-nine.vercel.app/'] })); 
+app.use(cors({ origin: ['http://localhost:3000', 'https://mini-task-manager-nine.vercel.app'] }));
 app.use(express.json());
 app.use('/api', taskRoute)
 
