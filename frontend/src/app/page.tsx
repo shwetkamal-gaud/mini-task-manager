@@ -99,7 +99,6 @@ export default function Home() {
       />}
 
       {showDelete && <DeleteModal
-        isOpen={showDelete}
         onClose={() => {
           setShowDelete(false);
           setSelectedTask(null);

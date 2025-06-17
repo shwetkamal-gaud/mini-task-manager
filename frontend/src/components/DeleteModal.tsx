@@ -1,12 +1,12 @@
 import React from 'react'
 
 interface DeleteModalProps {
-    isOpen: boolean;
+    
     onClose: () => void;
     onConfirm: () => void;
 };
 
-const DeleteModal = ({ isOpen, onClose, onConfirm }: DeleteModalProps) => {
+const DeleteModal = ({  onClose, onConfirm }: DeleteModalProps) => {
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
             <div className="bg-white/60 dark:bg-gray-900/60 p-6 rounded-lg shadow-xl max-w-sm w-full text-center">

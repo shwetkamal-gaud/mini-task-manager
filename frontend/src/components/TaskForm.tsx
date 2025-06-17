@@ -19,7 +19,7 @@ const TaskForm = ({ isOpen, onClose, onSubmit, initialData }: TaskFormProps) => 
         }
     }, [initialData, isOpen]);
 
-    if (!isOpen) return null;
+
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
             <div className="w-full max-w-md p-6 bg-white/60 dark:bg-gray-900/60 rounded-xl shadow-xl backdrop-blur-sm">
