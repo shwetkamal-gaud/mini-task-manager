@@ -3,7 +3,7 @@ import DeleteModal from "@/components/DeleteModal";
 import TaskCard from "@/components/TaskCard";
 import TaskForm from "@/components/TaskForm";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import Image from "next/image";
+
 import { useEffect, useState } from "react";
 export interface Task {
   id: number
@@ -11,7 +11,7 @@ export interface Task {
   status: string,
   createdAt: string
 }
-
+const baseUrl = process.env.NEXT_PUBLIC_API_URL
 export default function Home() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState(true);
@@ -19,7 +19,7 @@ export default function Home() {
   const [showForm, setShowForm] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
   const fetchTasks = async () => {
-    const res = await fetch('http://localhost:8000/api/tasks');
+    const res = await fetch(`${baseUrl}/api/tasks`);
     const data = await res.json();
     setTasks(data);
     setLoading(false)
@@ -29,13 +29,13 @@ export default function Home() {
   }, [])
   const handleSubmit = async ({ title, status }: { title: string; status: string }) => {
     if (selectedTask) {
-      await fetch(`http://localhost:8000/api/tasks/${selectedTask.id}`, {
+      await fetch(`${baseUrl}/api/tasks/${selectedTask.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title, status }),
       });
     } else {
-      await fetch(`http://localhost:8000/api/tasks`, {
+      await fetch(`${baseUrl}/api/tasks`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title, status }),
@@ -49,7 +49,7 @@ export default function Home() {
 
   const handleDelete = async () => {
     if (!selectedTask) return;
-    await fetch(`http://localhost:8000/api/tasks/${selectedTask.id}`, {
+    await fetch(`${baseUrl}/api/tasks/${selectedTask.id}`, {
       method: 'DELETE',
     });
     setShowDelete(false);
