@@ -17,7 +17,7 @@ const TaskCard = ({ id, title, status, createdAt, setTask, setShowForm, setShowD
         <div className="p-4 mb-4 backdrop-blur-sm bg-white/60 border border-white/10 rounded-xl shadow transition hover:scale-[1.02] hover:shadow-xl">
             <div className="flex justify-between items-center">
                 <div>
-                    <h3 className="text-lg font-semibold">{title}</h3>
+                    <h3 title={title} className="text-lg font-semibold break-words truncate w-30 line-clamp-2">{title}</h3>
                     <p className="text-xs text-gray-400">{createdAt}</p>
                 </div>
                 <div
