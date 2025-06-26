@@ -21,17 +21,17 @@ export default function Home() {
   const fetchTasks = async () => {
 
     setLoading(true)
-    try{
+    try {
       const res = await fetch(`${baseUrl}/api/tasks`);
       const data = await res.json();
       setTasks(data);
 
     }
-    catch(e){
+    catch (e) {
       console.error(e)
     }
-    finally{
-    setLoading(false)
+    finally {
+      setLoading(false)
     }
   };
   useEffect(() => {
@@ -68,18 +68,20 @@ export default function Home() {
   };
   return (
     <div className="min-h-screen w-full flex items-center justify-center px-4 py-8 bg-gradient-to-tr from-blue-200 via-purple-300 to-indigo-300 dark:from-gray-500 dark:via-gray-700 dark:to-gray-900 transition-colors duration-300">
-      <div className="md:min-w-2xl w-lg  border flex flex-col gap-3 border-white/30 dark:border-black/10 shadow p-3 bg-white/20 dark:bg-black/20 rounded-lg backdrop-blur-[32px]">
-        <div className="flex items-center justify-between">
-          <h1 className="text-white  text-2xl font-bold">Mini Task Manager</h1>
-          <ThemeToggle />
-        </div>
+      <div className="md:min-w-2xl w-lg h-[80vh] overflow-y-auto scrollbar-hide  border flex flex-col gap-3 border-white/30 dark:border-black/10 shadow p-3 bg-white/20 dark:bg-black/20 rounded-lg backdrop-blur-[32px]">
+        <div className="flex flex-col bg gap-2 sticky top-0 z-50  ">
+          <div className="flex items-center justify-between">
+            <h1 className="text-white  text-2xl font-bold">Mini Task Manager</h1>
+            <ThemeToggle />
+          </div>
 
-        <button onClick={() => {
-          setSelectedTask(null);
-          setShowForm(true);
-        }} className=" p-2  self-end dark:bg-gray-900 text-white rounded-lg dark:hover:bg-black bg-blue-500 hover:bg-blue-600 ">
-          Add Task
-        </button>
+          <button onClick={() => {
+            setSelectedTask(null);
+            setShowForm(true);
+          }} className=" p-2  self-end dark:bg-gray-900 text-white rounded-lg dark:hover:bg-black bg-blue-500 hover:bg-blue-600 ">
+            Add Task
+          </button>
+        </div>
 
         {loading ? (
           <p className="text-center text-white">Loading tasks...</p>

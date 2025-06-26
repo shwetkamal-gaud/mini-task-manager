@@ -14,7 +14,7 @@ interface TaskCardProp {
 
 const TaskCard = ({ id, title, status, createdAt, setTask, setShowForm, setShowDelete }: TaskCardProp) => {
     return (
-        <div className="p-4 mb-4 backdrop-blur-sm bg-white/60 border border-white/10 rounded-xl shadow transition hover:scale-[1.02] hover:shadow-xl">
+        <div className="p-4 mb-4 backdrop-blur-sm bg-white/60 border border-white/10  rounded-xl shadow transition hover:scale-[1.02] hover:shadow-xl">
             <div className="flex justify-between items-center">
                 <div>
                     <h3 title={title} className="text-lg font-semibold break-words truncate w-30 line-clamp-2">{title}</h3>
